@@ -1,6 +1,8 @@
+import type { Config } from 'tailwindcss';
+
 module.exports = {
-  plugins: {
-    tailwindcss: {},
-    autoprefixer: {},
-  },
-};
+  plugins: [
+    require('tailwindcss'),
+    require('autoprefixer'),
+  ],
+} as Config;
