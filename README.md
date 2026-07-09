@@ -1,193 +1,243 @@
-# HH Connect
+# HH Connect - Professional Networking & Job Platform
 
-A premium SaaS platform for professional networking, job posting, portfolio building, and project collaboration.
+A comprehensive full-stack web application built with Next.js that connects professionals, job seekers, and companies in one unified platform.
 
-## Overview
+## 🚀 Features
 
-HH Connect is a comprehensive ecosystem that connects students, freelancers, professionals, companies, and recruiters. It enables:
+- **Job Listings**: Browse and search thousands of job opportunities
+- **User Profiles**: Create and customize your professional profile
+- **Portfolio Builder**: Showcase your projects and work samples
+- **Networking**: Connect with professionals and recruiters
+- **Job Applications**: Apply for jobs with one click
+- **Freelance Projects**: Find and bid on freelance opportunities
+- **Analytics**: Track profile views and application status
+- **Messaging**: Communicate with employers and connections
+- **Dark Mode**: Full dark/light theme support
+- **Responsive Design**: Works seamlessly on all devices
 
-- **Job Posting & Hiring**: Companies post jobs and manage applications
-- **Portfolio Building**: Users showcase their work and skills
-- **Project Collaboration**: Freelancers and clients connect for projects
-- **Real-time Messaging**: Direct communication between users
-- **AI-Powered Features**: Resume analysis, job recommendations, and more
-- **Admin Dashboard**: Platform management and analytics
-
-## Tech Stack
+## 🛠️ Tech Stack
 
 ### Frontend
-- **Next.js 15** - React framework with App Router
-- **TypeScript** - Type safety
-- **Tailwind CSS** - Utility-first styling
-- **shadcn/ui** - Premium UI components
-- **Framer Motion** - Smooth animations
-- **Lucide Icons** - Beautiful iconography
+- **Next.js 14**: React framework with App Router
+- **TypeScript**: Type-safe development
+- **Tailwind CSS**: Utility-first CSS framework
+- **React Hook Form**: Efficient form handling
+- **Zustand**: State management
+- **SWR**: Data fetching library
 
 ### Backend
-- **Node.js** - JavaScript runtime
-- **Express.js** - Web framework
-- **Prisma ORM** - Database management
-- **PostgreSQL** - Relational database
-- **Next-Auth** - Authentication
+- **Next.js API Routes**: Serverless backend functions
+- **Prisma**: Modern ORM for database access
+- **NextAuth.js**: Authentication and authorization
+- **PostgreSQL**: Relational database
 
-## Project Structure
+### Tools & Libraries
+- **Zod**: Schema validation
+- **Axios**: HTTP client
+- **Date-fns**: Date utilities
+- **Slugify**: URL-friendly slugs
+- **React Toastify**: Toast notifications
 
-```
-hh-connect/
-├── src/
-│   ├── app/                    # Next.js app router
-│   │   ├── (auth)/             # Authentication pages
-│   │   ├── (dashboard)/        # Dashboard routes
-│   │   ├── api/                # API routes
-│   │   └── layout.tsx          # Root layout
-│   ├── components/             # Reusable React components
-│   ├── lib/                    # Utility functions
-│   ├── types/                  # TypeScript types
-│   ├── hooks/                  # Custom React hooks
-│   ├── services/               # API services
-│   ├── utils/                  # Helper functions
-│   └── constants/              # App constants
-├── prisma/                     # Database schema
-├── public/                     # Static assets
-└── tests/                      # Test files
-```
+## 📋 Prerequisites
 
-## Getting Started
+- Node.js 18.17 or later
+- npm or yarn package manager
+- PostgreSQL database (or use Docker)
+- Git
 
-### Prerequisites
-- Node.js 18+
-- PostgreSQL 12+
-- npm or yarn
+## 🚀 Getting Started
 
-### Installation
+### 1. Clone the repository
 
 ```bash
-# Clone the repository
 git clone https://github.com/hariharan1772005-bolt/Hari-project-.git
 cd Hari-project-
+```
 
-# Install dependencies
+### 2. Install dependencies
+
+```bash
 npm install
+# or
+yarn install
+```
 
-# Setup environment variables
+### 3. Set up environment variables
+
+Create a `.env.local` file in the root directory:
+
+```bash
 cp .env.example .env.local
+```
 
-# Setup database
-npm run db:push
-npm run db:seed
+Update the following variables:
 
-# Run development server
+```env
+# Database
+DATABASE_URL="postgresql://user:password@localhost:5432/hh_connect"
+
+# NextAuth
+NEXTAUTH_URL="http://localhost:3000"
+NEXTAUTH_SECRET="your-secret-key-here"
+
+# API
+NEXT_PUBLIC_API_URL="http://localhost:3000/api"
+
+# Optional: Third-party services
+SMTP_HOST=""
+SMTP_PORT=""
+SMTP_USER=""
+SMTP_PASSWORD=""
+```
+
+### 4. Set up the database
+
+```bash
+# Generate Prisma client
+npm run prisma:generate
+
+# Run migrations
+npm run prisma:migrate
+
+# Optional: Open Prisma Studio
+npm run prisma:studio
+```
+
+### 5. Run the development server
+
+```bash
 npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Features
+## 📁 Project Structure
 
-### For Students & Professionals
-- Create and manage portfolios
-- Apply for jobs
-- Upload and manage resumes
-- Receive job recommendations
-- Build professional networks
+```
+├── src/
+│   ├── app/                 # Next.js App Router
+│   │   ├── (auth)/         # Authentication pages
+│   │   ├── (dashboard)/    # Protected dashboard routes
+│   │   ├── api/            # API routes
+│   │   └── page.tsx        # Homepage
+│   ├── components/          # Reusable React components
+│   │   ├── ui/             # UI component library
+│   │   ├── Navigation.tsx   # Header navigation
+│   │   └── Footer.tsx       # Footer component
+│   ├── hooks/              # Custom React hooks
+│   ├── services/           # API service functions
+│   ├── types/              # TypeScript type definitions
+│   ├── constants/          # Application constants
+│   ├── utils/              # Utility functions
+│   └── styles/             # Global styles
+├── prisma/                 # Database schema and migrations
+├── public/                 # Static assets
+├── tests/                  # Test files
+├── .env.example           # Environment variables template
+├── .prettierrc.js         # Prettier configuration
+├── tailwind.config.ts     # Tailwind CSS configuration
+├── postcss.config.js      # PostCSS configuration
+├── tsconfig.json          # TypeScript configuration
+├── jest.config.ts         # Jest testing configuration
+└── package.json           # Project dependencies
+```
 
-### For Freelancers
-- Showcase work on portfolios
-- Bid for projects
-- Manage client communications
-- Track earnings
+## 🔐 Authentication
 
-### For Companies & Recruiters
-- Post job openings
-- Manage applications
-- Schedule interviews
-- View candidate profiles
-- Post projects for freelancers
+The platform uses **NextAuth.js** with the following providers:
 
-### Platform Features
-- Advanced search and filtering
-- Real-time messaging system
-- Notifications
-- Subscription plans
-- Payment processing
-- Admin dashboard
-- Analytics and reports
+- Email/Password (username & password)
+- Google OAuth (optional)
+- GitHub OAuth (optional)
 
-## Development
+Session management is handled securely with JWT tokens.
 
-### Running Tests
+## 📚 API Documentation
+
+### Authentication Endpoints
+
+- `POST /api/auth/login` - User login
+- `POST /api/auth/register` - User registration
+- `POST /api/auth/logout` - User logout
+- `GET /api/auth/me` - Get current user
+
+### Jobs Endpoints
+
+- `GET /api/jobs` - List all jobs with pagination
+- `GET /api/jobs/:id` - Get job details
+- `POST /api/jobs/:id/apply` - Apply for a job
+- `POST /api/jobs/create` - Create new job (admin)
+- `PUT /api/jobs/:id/update` - Update job (admin)
+- `DELETE /api/jobs/:id/delete` - Delete job (admin)
+
+## 🧪 Testing
+
+Run tests with:
+
 ```bash
 npm test
 ```
 
-### Building for Production
+## 📦 Building for Production
+
 ```bash
+# Build the application
 npm run build
+
+# Start production server
 npm start
 ```
 
-### Code Quality
+## 🚀 Deployment
+
+The project is ready to deploy on:
+
+- **Vercel** (Recommended for Next.js)
+- **Netlify**
+- **AWS**
+- **Azure**
+- **DigitalOcean**
+
+### Deploy to Vercel
+
 ```bash
-# Type checking
-npm run type-check
-
-# Linting
-npm run lint
-
-# Formatting
-npm run format
+npm i -g vercel
+vercel
 ```
 
-## Database
+## 🤝 Contributing
 
-### Migrations
-```bash
-# Create a new migration
-npm run db:migrate
+We welcome contributions! Please follow these steps:
 
-# Push schema changes
-npm run db:push
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-# Seed database
-npm run db:seed
+## 📝 License
 
-# Open Prisma Studio
-npm run db:studio
-```
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Security
+## 🆘 Support
 
-- Secure password hashing with bcryptjs
-- JWT-based authentication
-- HTTPS and secure headers
-- Input validation and sanitization
-- Role-based access control
-- Audit logging
+For support, email support@hhconnect.com or open an issue in the repository.
 
-## Performance
+## 🎯 Roadmap
 
-- Optimized images and lazy loading
-- Code splitting
-- Server-side rendering where appropriate
-- Database query optimization
-- Caching strategies
+- [ ] Video interview capabilities
+- [ ] AI-powered job recommendations
+- [ ] Skills assessment tests
+- [ ] Mobile app (React Native)
+- [ ] Real-time notifications
+- [ ] Advanced analytics dashboard
+- [ ] Integration with LinkedIn
+- [ ] Payment gateway for premium features
 
-## Accessibility
+## 👨‍💻 Author
 
-- WCAG 2.2 AA compliant
-- Semantic HTML
-- ARIA labels
-- Keyboard navigation
-- Screen reader support
+**Hariharan** - [GitHub](https://github.com/hariharan1772005-bolt)
 
-## Contributing
+---
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
-
-## License
-
-BSL 1.0 - See LICENSE file
-
-## Support
-
-For support, email support@hhconnect.com or open an issue on GitHub.
+**Made with ❤️ by the HH Connect Team**
